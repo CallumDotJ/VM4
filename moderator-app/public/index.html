@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joke Page</title>
+    <link rel="stylesheet" href="/moderator-api/style.css" />
+    <script src="/moderator-api/script.js" defer></script>
+  </head>
+
+  <body>
+    <h1>Joke Moderator</h1>
+
+    <!-- Status -->
+    <div id="status">Loading...</div>
+
+    <hr />
+
+    <!-- Moderation Form -->
+    <form id="moderateForm">
+      <label for="setup">Setup:</label><br />
+      <textarea id="setup" rows="3" cols="50"></textarea><br /><br />
+
+      <label for="punchline">Punchline:</label><br />
+      <textarea id="punchline" rows="3" cols="50"></textarea><br /><br />
+
+      <label for="typeSelect">Select Existing Type:</label><br />
+      <select id="typeSelect">
+        <option value="">-- Select Type --</option></select
+      ><br /><br />
+
+      <label for="newType">Or Enter New Type:</label><br />
+      <input type="text" id="newType" /><br /><br />
+
+      <!-- Actions -->
+      <button type="submit">Approve & Submit</button>
+      <button type="button" id="rejectBtn">Reject / Next</button>
+    </form>
+  </body>
+</html>

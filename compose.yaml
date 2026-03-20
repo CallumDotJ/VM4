@@ -1,0 +1,24 @@
+services:
+  
+  moderator:
+    build: 
+      context: ./moderator-app
+    container_name: moderator
+    restart: unless-stopped
+    env_file: .env
+    
+    environment:
+      # file cache path inside container - mounted volume
+      TYPES_CACHE_PATH: /cache/typeCache.json
+      AMQP_URL: amqp://${RABBITMQ_DEFAULT_USER}:${RABBITMQ_DEFAULT_PASS}@${VM2_PRIVATE_IP}:${RABBITMQ_PORT}
+
+
+    ports:
+      - "${MODERATOR_PORT_INTERNAL}:${MODERATOR_CONTAINER_PORT}"
+    volumes:
+      - moderator_types_cache:/cache
+
+
+
+volumes:
+  moderator_types_cache:
