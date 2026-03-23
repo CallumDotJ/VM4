@@ -4,7 +4,7 @@ const path = require('path');
 const moderatorApiRouter = require('./routes/moderatorApi');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.MODERATOR_CONTAINER_INTERNAL ||3100;
 
 app.use('/', moderatorApiRouter);
 
