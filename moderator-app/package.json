@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "amqplib": "^0.10.9",
     "express": "^5.2.1",
     "mysql2": "^3.16.3",
     "path": "^0.12.7"
