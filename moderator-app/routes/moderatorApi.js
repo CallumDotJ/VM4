@@ -62,7 +62,7 @@ router.get("/moderate", async (req, res) => {
     await gChannel.assertQueue(SUBMIT_QUEUE, { durable: true });
 
     // pull one message only 
-    const msg = await gChannel.get(SUBMIT_QUEUE, { noAck: false }); // no ack if for whatever reason we cant parase  we requeue msg
+    const msg = await gChannel.get(SUBMIT_QUEUE, { noAck: false }); // no ack yet
 
     if (!msg) {
       return res.json({
@@ -87,8 +87,8 @@ router.get("/moderate", async (req, res) => {
 });
 
 /**
- * POST /moderated
- * Accepts moderated joke from UI and sends it to moderated queue
+ * /moderated
+ * accepts moderated joke from UI and sends it to moderated queue
  */
 router.post("/moderated", async (req, res) => {
   try {
@@ -121,7 +121,7 @@ router.post("/moderated", async (req, res) => {
   }
 });
 
-/* --- Functions --- */
+/* --- RABBITMQ Functions --- */
 
 async function createQueueConnection() {
   for (let i = 0; i < 5 && !gConnection; i++) {
