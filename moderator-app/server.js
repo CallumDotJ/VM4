@@ -6,10 +6,12 @@ const moderatorApiRouter = require('./routes/moderatorApi');
 const app = express();
 const PORT = process.env.MODERATOR_CONTAINER_INTERNAL ||3100;
 
-app.use('/', moderatorApiRouter);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+
+app.use('/', moderatorApiRouter);
 
 app.use(express.static(path.join(__dirname, 'public'))); //serve static files from public directory
 
