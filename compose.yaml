@@ -10,11 +10,10 @@ services:
     environment:
       # file cache path inside container - mounted volume
       TYPES_CACHE_PATH: /cache/typeCache.json
-      AMQP_URL: amqp://${RABBITMQ_DEFAULT_USER}:${RABBITMQ_DEFAULT_PASS}@${VM2_PRIVATE_IP}:${RABBITMQ_PORT}
-
+      AMQP_URL: amqp://${RABBITMQ_DEFAULT_USER}:${RABBITMQ_DEFAULT_PASS}@${RMQ_PRIVATE_IP}:${RABBITMQ_PORT}
 
     ports:
-      - "${MODERATOR_PORT_INTERNAL}:${MODERATOR_CONTAINER_PORT}"
+      - "${MODERATOR_HOST_PORT}:${MODERATOR_CONTAINER_PORT}"
     volumes:
       - moderator_types_cache:/cache
 
