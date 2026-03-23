@@ -9,6 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
     loadTypes();
     typeSelect.addEventListener("focus", loadTypes);
     fetchJoke();
+
+    // ACTS AS THE POLLING
+    setInterval(fetchJoke, 1000);
 });
 
 async function fetchJoke() {
