@@ -4,6 +4,8 @@ const typeSelect = document.getElementById("typeSelect");
 const newTypeInput = document.getElementById("newType");
 const statusEl = document.getElementById("status");
 
+let hasJoke = false;
+
 // load types + first joke
 document.addEventListener("DOMContentLoaded", () => {
     loadTypes();
@@ -15,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 async function fetchJoke() {
+
+    if (hasJoke) {return;}
     try {
         const response = await fetch('/moderator-api/moderate');
 
@@ -34,6 +38,8 @@ async function fetchJoke() {
         }
 
         const joke = data.joke;
+
+        hasJoke = true;
 
         jokeSetup.value = joke.setup || "";
         jokePunchline.value = joke.punchline || "";
@@ -93,6 +99,8 @@ document.getElementById("moderateForm").addEventListener("submit", async (e) => 
         }
 
         statusEl.textContent = "Joke approved and submitted";
+        
+        hasJoke = false; 
 
         clearForm();
         fetchJoke(); // load next joke
@@ -106,6 +114,8 @@ document.getElementById("moderateForm").addEventListener("submit", async (e) => 
 
 document.getElementById("rejectBtn").addEventListener("click", () => {
     statusEl.textContent = "Joke rejected. Loading next...";
+
+    hasJoke = false; 
     clearForm();
     fetchJoke();
 });
