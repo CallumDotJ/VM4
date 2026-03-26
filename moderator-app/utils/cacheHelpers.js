@@ -1,6 +1,7 @@
 const fs = require("fs/promises");
 const path = require("path");
 
+// read cacche from given path
 async function readCache(cachePath) {
   try {
     const data = await fs.readFile(cachePath, "utf-8");
@@ -11,6 +12,7 @@ async function readCache(cachePath) {
   }
 }
 
+// write cache to given path
 async function writeCache(cachePath, data) {
   try {
     const dir = path.dirname(cachePath);

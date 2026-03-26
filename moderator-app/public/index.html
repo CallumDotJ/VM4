@@ -8,21 +8,19 @@
     <script src="/moderator-api/script.js" defer></script>
   </head>
 
-  <body>
+  <body style="background-color: black; color: white; text-align: center; font-family: Arial, sans-serif;">
+    <div class="divClass">
     <h1>Joke Moderator</h1>
 
     <!-- Status -->
     <div id="status">Loading...</div>
 
-    <hr />
-
-    <!-- Moderation Form -->
     <form id="moderateForm">
       <label for="setup">Setup:</label><br />
-      <textarea id="setup" rows="3" cols="50"></textarea><br /><br />
+      <textarea id="setup"  cols="50"></textarea><br /><br />
 
       <label for="punchline">Punchline:</label><br />
-      <textarea id="punchline" rows="3" cols="50"></textarea><br /><br />
+      <textarea id="punchline"  cols="50"></textarea><br /><br />
 
       <label for="typeSelect">Select Existing Type:</label><br />
       <select id="typeSelect">
@@ -36,5 +34,6 @@
       <button type="submit">Approve & Submit</button>
       <button type="button" id="rejectBtn">Reject / Next</button>
     </form>
+    </div>
   </body>
 </html>

@@ -1,5 +1,5 @@
 services:
-  
+  # MODERATOR SERVICE
   moderator:
     build: 
       context: ./moderator-app
@@ -8,8 +8,7 @@ services:
     env_file: .env
     
     environment:
-      # file cache path inside container - mounted volume
-      TYPES_CACHE_PATH: /cache/typeCache.json
+      TYPES_CACHE_PATH: /cache/typeCache.json # cache path
       AMQP_URL: amqp://${RABBITMQ_DEFAULT_USER}:${RABBITMQ_DEFAULT_PASS}@${RMQ_PRIVATE_IP}:${RABBITMQ_PORT}
 
     ports:
