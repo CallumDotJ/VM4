@@ -145,7 +145,7 @@ router.post("/moderated", async (req, res) => {
 // use to poll connect to queue
 async function createQueueConnection() {
 
-  for (let i = 0; i < 5 && !gConnection; i++) { // attempt reconnects
+  while (true) { // attempt reconnects
 
     await new Promise((resolve) => setTimeout(resolve, 2000)); // use promise as timeouts/waits
 
